@@ -55,7 +55,7 @@ The project runs on "[localhost:?/](https://localhost:44361/)".
     npm install jquery
 ```
 
-- [ ] Use this script before the script you are writing ([[source]](https://stackoverflow.com/questions/2075337/uncaught-referenceerror-is-not-defined)):
+- [ ] Use this script before the script you are writing [[source]](https://stackoverflow.com/questions/2075337/uncaught-referenceerror-is-not-defined):
 ```html
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
