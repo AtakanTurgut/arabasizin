@@ -1,0 +1,68 @@
+﻿@model PagedList<arabaSizin.Models.Ilan>
+@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <br />
+    <div class="row">
+        <!--Slider-->
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @Html.Action("Slider", "Home")
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <br />
+            <!--Filtreleme Kısmı-->
+            @Html.Action("PartialFilter", "Home")
+        </div>
+
+        @foreach (var item in Model)
+        {
+            var c = 1;
+            <div class="col-md-3">
+                <br />
+                <!--İlan Listesi-->
+
+                <div class="img-thumbnail">
+                    @foreach (var img in ViewBag.imgs)
+                    {
+                        if (img.ilanId == item.ilanId)
+                        {
+                            if (c == 1)
+                            {
+                                <a href="/Home/Detay/@item.ilanId"><img src="/Content/images/@img.resimAd" class="card-img-top" alt="..." height="220"></a>
+                                c++;
+                            }
+                        }
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Model.Marka.markaAd</h5>
+                        <h5 class="card-title">Model: @item.Model.modelAd </h5>
+                        <h5 class="card-title" style="color:darkblue">Model Yılı:  @item.modelYili  (@item.kilometre km)</h5>
+                        <h3 class="card-title" style="color:red">@item.fiyat ₺ </h3>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+        @Html.PagedListPager(Model, sayi => Url.Action("Index", new { sayi }))
+
+    </div>
+</div>
+

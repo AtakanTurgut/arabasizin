@@ -1,0 +1,97 @@
+﻿@model arabaSizin.Models.Ilan
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container">
+
+    <h3>Bu ilanı silmek istediğinizden emin misiniz?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                İlan Nuımarası
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ilanNo)
+            </dd>
+
+            <dt>
+                Açıklama
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.aciklama)
+            </dd>
+
+            <dt>
+                Fiyat
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.fiyat)
+            </dd>
+
+            <dt>
+                Tarih
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tarih)
+            </dd>
+
+            <dt>
+                Kilometre
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.kilometre)
+            </dd>
+
+            <dt>
+                Model Yılı
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.modelYili)
+            </dd>
+
+            <dt>
+                Yakıt Türü
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.yakitTuru)
+            </dd>
+
+            <dt>
+                Vites Türü
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.vitesTuru)
+            </dd>
+
+            <dt>
+                Telefon
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefon)
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <button typeof="submit" class="btn btn-outline-danger"><i class="bi bi-trash"></i> Sil</button>
+                <a href="/Ilan/Index" class="btn btn-outline-warning"><i class="bi bi-file-earmark"></i> İlan Listesi</a>
+            </div>
+        }
+    </div>
+</div>

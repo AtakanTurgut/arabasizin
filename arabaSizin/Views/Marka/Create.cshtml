@@ -1,0 +1,59 @@
+﻿@model arabaSizin.Models.Marka
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+    <br />
+
+    <div class="row">
+        <div class="col-md-3">
+            <br />
+            <!--Filtreleme Kısmı-->
+            @Html.Action("PartialFilter", "Home")
+        </div>
+
+        <div class="col-md-9">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Marka Ekle</li>
+                </ol>
+            </nav>
+            <div class="img-thumbnail">
+                <br />
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.markaAd, "Marka Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.markaAd, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.markaAd, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Ekle" class="btn btn-outline-primary" />
+                                @Html.ActionLink("Marka Listesi", "Index", null, new { @class = "btn btn-outline-warning" })
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

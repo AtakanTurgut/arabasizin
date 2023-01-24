@@ -1,0 +1,23 @@
+﻿@model IEnumerable<arabaSizin.Models.Ilan>
+@{ int i = 0; }
+
+@foreach (var item in Model)
+{
+    i++;
+    var c = 1;
+    var active = i == 1 ? "active" : "";
+    <div class="carousel-item @active">
+        @foreach (var img in ViewBag.imgs)
+        {
+            if (img.ilanId == item.ilanId)
+            {
+                if (c == 1)
+                {
+                    c++;
+                   <a href="/Home/Detay/@item.ilanId"><img src="/Content/images/@img.resimAd" class="d-block w-100" alt="..." height="450"></a>
+                }
+            }
+        }
+    </div>
+}
+

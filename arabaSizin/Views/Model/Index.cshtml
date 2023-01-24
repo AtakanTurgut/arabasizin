@@ -1,0 +1,60 @@
+﻿@model IEnumerable<arabaSizin.Models.Model>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <br />
+
+    <div class="row">
+        <div class="col-md-3">
+            <br />
+            <!--Filtreleme Kısmı-->
+            @Html.Action("PartialFilter", "Home")
+        </div>
+
+        <div class="col-md-9">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Model Listesi</li>
+                </ol>
+            </nav>
+            <div class="img-thumbnail">
+                <br />
+                <a class="btn btn-outline-primary col-12" href="@Url.Action("Create")">Model Ekle</a>
+                <table class="table">
+                    <tr>
+                        <th>
+                            Marka Adı
+                        </th>
+                        <th>
+                            Model Adı
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Marka.markaAd)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.modelAd)
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-primary" href="@Url.Action("Edit", new { id = item.modelId })"><i class="bi bi-pencil"></i> Düzenle</a>
+                                <a class="btn btn-outline-danger" href="@Url.Action("Delete", new { id = item.modelId })"><i class="bi bi-trash"></i> Sil</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+﻿@model arabaSizin.Models.Login
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container">
+    <br />
+
+    <div class="row">
+        <div class="col-md-3">
+            <br />
+            <!--Filtreleme Kısmı-->
+            @Html.Action("PartialFilter", "Home")
+        </div>
+
+        <div class="col-md-9">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Anasayfa</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Giriş Formu</li>
+                </ol>
+            </nav>
+            <div class="img-thumbnail">
+                <br />
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "row" }))
+                {
+
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+                        <div class="col-sm-4">
+                            @Html.EditorFor(n => n.userName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(n => n.userName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Şifre</label>
+                        <div class="col-sm-4">
+                            @Html.EditorFor(n => n.password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(n => n.password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-outline-success col-6">
+                                <i class="bi bi-box-arrow-in-right"></i> Giriş
+                            </button>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

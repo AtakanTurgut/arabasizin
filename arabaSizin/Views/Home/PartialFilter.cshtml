@@ -1,0 +1,82 @@
+﻿
+@model arabaSizin.Models.Ilan
+@using (Html.BeginForm("Filter", "Home", FormMethod.Get, new { @class = "row" }))
+{
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-4 col-form-label">En Az</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="min" placeholder="En Az (Fiyat)">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-4 col-form-label">En Çok</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" name="max" placeholder="En Çok (Fiyat)">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-4 col-form-label">Şehir</label>
+        <div class="col-sm-8">
+            @Html.DropDownList("sehirId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.sehirId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-4 col-form-label">Durum</label>
+        <div class="col-sm-8">
+            @Html.DropDownList("durumId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.durumId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-4 col-form-label">Marka</label>
+        <div class="col-sm-8">
+            @if (ViewBag.markalist != null)
+            {
+                @Html.DropDownListFor(m => m.markaId, ViewBag.markalist as SelectList, "Marka Seç", new { @class = "form-control" })
+            }
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-4 col-form-label">Model</label>
+        <div class="col-sm-8">
+            @Html.DropDownListFor(m => m.modelId, new SelectList(""), "Model Seç", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-4 col-form-label"></label>
+        <div class="col-sm-8">
+            <button type="submit" class="btn btn-outline-primary col-12">
+                <i class="bi bi-funnel-fill"></i> FİLTRELE
+            </button>
+        </div>
+    </div>
+}
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#markaId").change(function () {
+            var markaId = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Ilan/ModelGetir?markaId=" + markaId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#modelId").empty();
+                    $("#modelId").append(response);
+                }
+            })
+        })
+    })
+</script>

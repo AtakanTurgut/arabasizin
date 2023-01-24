@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Images";
+}
+
+<div class="container">
+    @{ 
+        Html.BeginForm("Images", "Ilan", FormMethod.Post, new { enctype =  "multipart/Form-data" });
+        foreach (var item in ViewBag.ilan)
+        {
+            <h2>@item.ilanId Numaralı İlan İçin Resim Ekle</h2>
+            <table>
+                <tr>
+                    <td>Resim Seç</td>
+                    <td><input type="hidden" name="id" value="@item.ilanId" /></td>
+                    <td><input type="file" name="file" /></td>
+                    <td><input type="submit" value="Ekle" class="btn btn-outline-primary"/></td>
+                    <td>- <a href="/Ilan/Index" class="btn btn-outline-warning"><i class="bi bi-file-earmark"></i> İlan Listesi</a></td>
+                </tr>
+            </table>
+        }
+    }
+    <br />
+    <div class="row">
+        @foreach (var item in ViewBag.img)
+        {
+            <div class="col-md-4">
+                <div class="img-thumbnail">
+                    <img src="~/Content/images/@item.resimAd" height="250" width="405"/>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

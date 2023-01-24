@@ -1,0 +1,77 @@
+﻿@model arabaSizin.Models.ProfilGuncelle
+@{
+    ViewBag.Title = "Profil";
+}
+
+<div class="container">
+    <br />
+
+    <div class="row">
+        <div class="col-md-3">
+            <br />
+            <!--Filtreleme Kısmı-->
+            @Html.Action("PartialFilter", "Home")
+        </div>
+
+        <div class="col-md-9">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Anasayfa</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Profil Güncelleme</li>
+                </ol>
+            </nav>
+            <div class="img-thumbnail">
+                <br />
+                @using (Html.BeginForm("Profil", "Account", FormMethod.Post, new { @class = "row" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.id)
+                    
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Ad</label>
+                        <div class="col-sm-4">
+                            @Html.EditorFor(n => n.name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(n => n.name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Soyad</label>
+                        <div class="col-sm-4">
+                            @Html.EditorFor(n => n.surname, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(n => n.surname, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Kullanıcı Adı</label>
+                        <div class="col-sm-4">
+                            @Html.EditorFor(n => n.userName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(n => n.userName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-4">
+                            @Html.EditorFor(n => n.email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(n => n.email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-outline-primary col-6">
+                                <i class="bi bi-pencil"></i> Güncelle
+                            </button>
+                            Ya da <a href="/Account/ChangePassword">Şifre Değiştir</a>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

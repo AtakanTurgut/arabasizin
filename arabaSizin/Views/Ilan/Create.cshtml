@@ -1,0 +1,167 @@
+﻿@model arabaSizin.Models.Ilan
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+    <div class="row">
+
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <br />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.userName, "Kullanıcı Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-2">
+                        <label class="btn btn-success">@User.Identity.Name</label>
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.ilanNo, "İlan No", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.ilanNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ilanNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.aciklama, "Açıklama", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.aciklama, "Açıklama", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.aciklama, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.fiyat, "Fiyat", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.fiyat, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fiyat, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.tarih, "Tarih", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.tarih, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.tarih, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.kilometre, "Kilometre", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.kilometre, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.kilometre, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.modelYili, "Model Yılı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.modelYili, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.modelYili, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.yakitTuru, "Yakıt Türü", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.yakitTuru, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.yakitTuru, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.vitesTuru, "Vites Türü", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.vitesTuru, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.vitesTuru, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.telefon, "Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.telefon, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.telefon, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.durumId, "Durum Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownList("durumId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.durumId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.markaId, "Marka Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @if (ViewBag.markalist != null)
+                        {
+                            @Html.DropDownListFor(m => m.markaId, ViewBag.markalist as SelectList, "Marka Seç", new { @class = "form-control" })
+                        }
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.modelId, "Model Adı", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(m => m.modelId, new SelectList(""), "Model Seç", new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    @Html.LabelFor(model => model.sehirId, "Şehir", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.DropDownList("sehirId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.sehirId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="row mb-3" style="text-align: center">
+                    <div class="col-md-offset-2 col-md-6">
+                        <button typeof="submit" class="btn btn-outline-primary"><i class="bi bi-plus-circle"></i> Ekle</button>
+                        <a href="/Ilan/Index" class="btn btn-outline-warning"><i class="bi bi-file-earmark"></i> İlan Listesi</a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="~/Scripts/jquery-1.10.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#markaId").change(function () {
+            var sehirId = $(this).val();
+            debugger
+            $.ajax({
+                type: "Post",
+                url: "/Ilan/ModelGetir?markaId=" + sehirId,
+                contentType: "html",
+                success: function (response) {
+                    debugger
+                    $("#modelId").empty();
+                    $("#modelId").append(response);
+                }
+            })
+        })
+    })
+</script>
+

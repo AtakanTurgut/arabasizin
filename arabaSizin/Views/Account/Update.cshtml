@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+}
+
+<div class="container">
+    <br />
+
+    <div class="row">
+        <div class="col-md-3">
+            <br />
+            <!--Filtreleme Kısmı-->
+            @Html.Action("PartialFilter", "Home")
+        </div>
+
+        <div class="col-md-9">
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Home/Index">Anasayfa</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Güncelleme</li>
+                </ol>
+            </nav>
+            <h3>Bilgileriniz Güncellenmiştir!</h3>
+        </div>
+    </div>
+</div>
+

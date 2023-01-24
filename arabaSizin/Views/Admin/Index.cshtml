@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <br />
+
+    <div class="row">
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/Admin/Index">Admin Sayfası</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Anasayfa</li>
+            </ol>
+        </nav>
+
+        <div class="col-md-2">
+            <div class="img-thumbnail">
+                <br />
+                <img src="~/Content/images/analiz.png" width="185" height="140" />
+                <p align="center">@Html.ActionLink("İlan Listesi", "IlanListesi", "Admin", null, new { @class = "btn btn-primary" })</p>
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="img-thumbnail">
+                <br />
+                <img src="~/Content/images/analiz.png" width="185" height="140" />
+                <p align="center">@Html.ActionLink("Şehir Listesi", "Index", "Sehir", null, new { @class = "btn btn-success" })</p>
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="img-thumbnail">
+                <br />
+                <img src="~/Content/images/analiz.png" width="185" height="140" />
+                <p align="center">@Html.ActionLink("Durum Listesi", "Index", "Durum", null, new { @class = "btn btn-info" })</p>
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="img-thumbnail">
+                <br />
+                <img src="~/Content/images/analiz.png" width="185" height="140" />
+                <p align="center">@Html.ActionLink("Marka Listesi", "Index", "Marka", null, new { @class = "btn btn-warning" })</p>
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="img-thumbnail">
+                <br />
+                <img src="~/Content/images/analiz.png" width="185" height="140" />
+                <p align="center">@Html.ActionLink("Model Listesi", "Index", "Model", null, new { @class = "btn btn-success" })</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
