@@ -2,11 +2,11 @@
 
 ## ArabaSizin Api Addresses
 
-If we want to start the project with [Microsoft Visual Studio](https://visualstudio.microsoft.com/), we start the project by right-clicking on the "[\Views\Home\Index.cshtml](//)" file while the project is open and selecting "View in Browser ([Selected Browser](https://www.google.com.tr/))".
+If we want to start the project with [Microsoft Visual Studio](https://visualstudio.microsoft.com/), we start the project by right-clicking on the "[\Views\Home\Index.cshtml](/https://github.com/AtakanTurgut/arabasizin/blob/main/arabaSizin/Views/Home/Index.cshtml/)" file while the project is open and selecting "View in Browser ([Selected Browser](https://www.google.com.tr/))".
 
-If we want, we can also use `\Index.cshtml` of other "[\Views](//)" files to see how other pages look.
+If we want, we can also use `\Index.cshtml` of other "[\Views](/https://github.com/AtakanTurgut/arabasizin/tree/main/arabaSizin/Views/)" files to see how other pages look.
 
-However, it's best to start the project with "[\Views\Home\Index.cshtml](//)" to run it properly.
+However, it's best to start the project with "[\Views\Home\Index.cshtml](/https://github.com/AtakanTurgut/arabasizin/blob/main/arabaSizin/Views/Home/Index.cshtml/)" to run it properly.
 
 The application also has an admin panel. Admin can add, delete, update, see all car list.
 
