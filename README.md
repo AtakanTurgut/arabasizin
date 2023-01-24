@@ -46,9 +46,9 @@ The project runs on "[localhost:?/](https://localhost:44361/)".
     PM>  NuGet\Install-Package PagedList.Mvc -Version 4.5.0
 ```
 
-- [x] If you get an error like this in the console with F12 (It may be due to the version.):
+- [ ] If you get an error like this in the console with F12 (It may be due to the version.):
 
-        Uncaught ReferenceError: $ is not defined at ?
+                Uncaught ReferenceError: $ is not defined at ?
 
 - [ ] Go to the project directory you want to install with `Command Prompt (CMD)` and install [jQuery](https://jquery.com/download/).
 ```
