@@ -8,7 +8,7 @@ If we want, we can also use `\Index.cshtml` of other "[\Views](https://github.co
 
 However, it's best to start the project with "[\Views\Home\Index.cshtml](https://github.com/AtakanTurgut/arabasizin/blob/main/arabaSizin/Views/Home/Index.cshtml/)" to run it properly.
 
-The application also has an admin panel. Admin can add, delete, update, see all car list.
+The application also has an admin panel. Admin can add, delete, update, see all car list. 
 
 Use this user name and password for the admin page.
 
