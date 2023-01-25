@@ -83,7 +83,7 @@ The project runs on "[localhost:?/](https://localhost:44361/)".
 ```
 
 ----
-## ArabaSizin Project [Images](//)
+## ArabaSizin Project [Images](https://github.com/AtakanTurgut/arabasizin/tree/main/pictures)
 
 ### 1. Home Page:  https://localhost:44361/Home/Index
 ![](/pictures/HomePage1.PNG)
